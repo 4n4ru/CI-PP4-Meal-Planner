@@ -1,108 +1,246 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Meal Planner
+(Developer: Ana Runje)
 
-Welcome USER_NAME,
+![Mockup image]()
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[Live webpage]()
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Table of Content
 
-## Gitpod Reminders
+1. [Project Goals](#project-goals)
+    1. [User Goals](#user-goals)
+    2. [Site Owner Goals](#site-owner-goals)
+2. [User Experience](#user-experience)
+    1. [Target Audience](#target-audience)
+    2. [User Requirements and Expectations](#user-requirements-and-expectations)
+    3. [User Stories](#user-stories)
+    4. [Site Owner Stories](#site-owner-stories)
+3. [Design](#design)
+    1. [Design Choices](#design-choices)
+    2. [Colour](#colours)
+    3. [Fonts](#fonts)
+    4. [Structure](#structure)
+    5. [Wireframes](#wireframes)
+4. [Technologies Used](#technologies-used)
+    1. [Languages](#languages)
+    2. [Frameworks & Tools](#frameworks-&-tools)
+5. [Features](#features)
+6. [Testing](#validation)
+    1. [HTML Validation](#HTML-validation)
+    2. [CSS Validation](#CSS-validation)
+    3. [JavaScript Validation](#javascript-validation)
+    4. [Accessibility](#accessibility)
+    5. [Performance](#performance)
+    6. [Device testing](#performing-tests-on-various-devices)
+    7. [Browser compatibility](#browser-compatability)
+    8. [Testing user stories](#testing-user-stories)
+8. [Bugs](#Bugs)
+9. [Deployment](#deployment)
+10. [Credits](#credits)
+11. [Acknowledgments](#acknowledgments)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Project Goals 
+Meal Planner is a web app for weekly meal planning. A user is required to sign up in order to create, view or edit their meal plans. 
 
-`python3 -m http.server`
+### User Goals
+- 
 
-A blue button should appear to click: _Make Public_,
+### Site Owner Goals
+- 
 
-Another blue button should appear to click: _Open Browser_.
+## User Experience
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Target Audience
+- people who meal plan on a weekly basis
+- people who would like to eliminate the question what do we do for dinner tonight
+- people with special diatary requierments who need to plan ahead
+- people who like to be organized
 
-A blue button should appear to click: _Make Public_,
+### User Requirements and Expectations
+- A simple and intuitive navigation system
+- Quick and easy to use
+- Links and functions that work as expected
+- Good presentation and a visually appealing design regardless of screen size
+- An easy way to leave feedback
+- Accessibility
 
-Another blue button should appear to click: _Open Browser_.
+### User Stories
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-To log into the Heroku toolbelt CLI:
+### Site Owner Stories
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Design
 
-------
+### Design Choices
 
-## Release History
+### Colour
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+<details><summary></summary>
+<img src="">
+</details>
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Fonts
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### Structure
+The page is structured in a user-friendly and easy-to-learn way. Upon arriving at the website the user sees ... The website consists of ... separate pages:
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Wireframes
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+<details><summary></summary>
+<img src="">
+</details>
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Technologies Used
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Languages
+- HTML
+- CSS
+- JavaScript
+- Python
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Frameworks & Tools
+- Django
+- PostgreSQL
+- Bootstrap v5.0
+- Git
+- GitHub
+- Gitpod
+- Tinypng
+- Paint<span>.</span>NET
+- Balsamiq
+- Font Awesome
+- Favicon<span>.</span>io
+- JSHint
+- Lighthouse
+- W3C Markup validation service
+- W3C Jigsaw CSS validation service 
+- WAVE WebAIM web accessibility evaluation tool
+- EmailJS
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Features
+The site consists of ... pages and ... features
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Feature
+-
+-
+- user storie covered: 
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+<details><summary></summary>
+<img src="">
+</details>
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## Validation
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### HTML Validation
+The W3C Markup Validation Service was used to validate the HTML of the website. All pages pass with no errors no warnings to show.
+<details><summary></summary>
+<img src="">
+</details>
 
-------
 
-## FAQ about the uptime script
+### CSS Validation
+The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. When validating the page as a whole, the validator shows some errors linked to Bootstrap v5.0. When validating just my custom CSS it passes with no errors.
 
-**Why have you added this script?**
+<details><summary>Full page</summary>
+<img src="">
+</details>
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
 
-**How will this affect me?**
+### JavaScript Validation
+JSHint Static Code Analysis Tool for JavaScript was used to validate the Javascript files. No significant issues were found.
+<details><summary></summary>
+<img src="">
+</details>
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Accessibility
+The WAVE WebAIM web accessibility evaluation tool was used to ensure the website met high accessibility standards. All pages pass with 0 errors.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+<details><summary></summary>
+<img src="">
+</details>
 
-**So….?**
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Performance 
+Google Lighthouse in Google Chrome Developer Tools was used to test the performance of the website.
 
-**Can I opt out?**
+<details><summary></summary>
+<img src="">
+</details>
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### Performing tests on various devices 
+The website was tested on the following devices:
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+- Lenovo Yoga 2 Pro (both in pc and tablet mode)
+- Honor 20 pro
+- Xiaomi Redmi Note 7
 
-**Anything more?**
+In addition, the website was tested using the Google Chrome Developer Tools Device Toggling option for all available device options.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### Browser Compatability
+The website was tested on the following browsers:
 
----
+- Google Chrome
+- Mozilla Firefox
+- Microsoft Edge
 
-Happy coding!
+### Testing user stories
+
+1. As a user, I want to ... so I can ...
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+
+<details><summary></summary>
+<img src="">
+</details>
+
+
+## Bugs
+
+| **Bug** | **Fix** |
+| ----------- | ----------- |
+
+
+## Deployment
+The website was deployed using Heroku by "following these steps:
+1. Use the "pip freeze -> requiremnts.txt" command in the terminal to save any libraries that need to be instaled in the file
+2. Login or create a Heroku account
+3. Click the "new" button in the upper right corner and select "create new app"
+4. Choose an app name and your region and click "Create app"
+5. Go to the "settings" tab, add the python build pack and then the node.js build pack
+6. Go to the "deploy" tab and pick GitHub as a deployment method
+7. Search for a repository to connect to
+8. Click enable automatic deploys and then deploy branch
+9. Wait for the app to build and then click on the "View" link
+
+You can fork the repository by following these steps:
+1. Go to the GitHub repository
+2. Click on the Fork button in the upper right-hand corner
+
+You can clone the repository by following these steps:
+1. Go to the GitHub repository
+2. Locate the Code button above the list of files and click it
+3. Select if you prefer to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the URL to your clipboard
+4. Open Git Bash
+5. Change the current working directory to the one where you want the cloned directory
+6. Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY)
+7. Press Enter to create your local clone.
+
+
+## Credits
+
+
+### Media
+
+
+### Code
+
+
+## Acknowledgments
+I would like to take the opportunity to thank:
+- My mentor Mo Shami for his feedback, advice, guidance and support.
+- My husband Jure Runje for his support, advice, help with testing, and for giving me some kids free time to work on my project.
