@@ -88,8 +88,14 @@ The page is structured in a user-friendly and easy-to-learn way. Upon arriving a
 
 ### Wireframes
 
-<details><summary></summary>
-<img src="">
+<details><summary>Home</summary>
+<img src="docs/wireframes/home.png">
+</details>
+<details><summary>Meal Plan</summary>
+<img src="docs/wireframes/meal_plan.png">
+</details>
+<details><summary>Contact Form</summary>
+<img src="docs/wireframes/contact_form.png">
 </details>
 
 
