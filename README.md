@@ -43,10 +43,11 @@
 Meal Planner is a web app for weekly meal planning. A user is required to sign up in order to create, view or edit their meal plans. 
 
 ### User Goals
-- 
+- Planning meals for the week
+- Saving/having multiple meal plans
 
 ### Site Owner Goals
-- 
+- Providing a platform for users to create and view meal plans
 
 ## User Experience
 
@@ -65,9 +66,20 @@ Meal Planner is a web app for weekly meal planning. A user is required to sign u
 - Accessibility
 
 ### User Stories
-
-
-### Site Owner Stories
+1. As a Site User, I can register an account so that I can create a meal plan
+2. As a Site User, I can edit my meal plan so that I can change my plan later
+3. As a Site User, I can create multiple meal plans so that I can plan further ahead
+4. As a First Time User, I can see a sample meal plan so that I can see what the app is all about
+5. As a Site Owner I can receive the users' feedback and comments as emails so that I know a contact form was filled in real time
+6. As a Site User I can fill out a contact form so that I can leave comments, suggestions, questions or feedback about the app
+7. As a Site User I can see a confirmation message so that I know that my form was submitted successfuly
+8. As a Site User I can use the navigation bar so that I can easily navigate to different pages
+9. As a Site User I can navigate between meal plans so that I can choose which meal plan to read
+10. As a Site User I can delete a meal plane so that I can remove it when no longer needed
+11. As a New user I can view the landing page so that I can learn the sites purpose
+12. As a Site Owner I want calls to action on the landing page so that site users can easily sign up for the service
+13. As a Site User I can pick the start date of my meal plan so that I can plan my weekly meals on the most convenient day of the week
+14. As a Site owner I want to make sure, only the logged-in user can view meal plans so that data privacy is ensured
 
 
 ## Design
