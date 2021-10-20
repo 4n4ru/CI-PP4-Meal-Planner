@@ -81,13 +81,11 @@ Meal Planner is a web app for weekly meal planning. A user is required to sign u
 13. As a Site User I can pick the start date of my meal plan so that I can plan my weekly meals on the most convenient day of the week
 14. As a Site owner I want to make sure, only the logged-in user can view meal plans so that data privacy is ensured
 
-
 ## Design
 
 ### Design Choices
 
 ### Colour
-
 
 <details><summary></summary>
 <img src="">
@@ -96,7 +94,12 @@ Meal Planner is a web app for weekly meal planning. A user is required to sign u
 ### Fonts
 
 ### Structure
-The page is structured in a user-friendly and easy-to-learn way. Upon arriving at the website the user sees ... The website consists of ... separate pages:
+The page is structured in a user-friendly and easy-to-learn way. Upon arriving at the website the user sees the home page, where the purpose of the site is explained. The website consists of 4 separate pages:
+1. Home page
+2. Sample meal plan
+3. Meal planning (only visible to the logged in user)
+4. Contact form
+
 
 ### Wireframes
 
@@ -139,16 +142,25 @@ The page is structured in a user-friendly and easy-to-learn way. Upon arriving a
 - EmailJS
 
 ## Features
-The site consists of ... pages and ... features
+The site consists of 4 pages and ... features
 
 ### Feature
--
--
+1. Navigation bar
+- 
 - user storie covered: 
-
 <details><summary></summary>
 <img src="">
 </details>
+
+2. Hero image
+3. About section
+4. Sign-up button
+5. Sample meal plan
+6. Adding meal plan
+7. Viewing meal plan
+8. Editing meal plan
+9. Deleting meal plan
+10. Contact Form
 
 ## Validation
 
