@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- <form action="POST">
+    {{ meal_plan_form.as_p }}
+    {% csrf_token %}
+    <button type="submit">Submit</button>
+</form> -->
+
+<form action="pick_date" method="post">{% csrf_token %}
+    {{ meal_plan_form.as_p }}
+    {% csrf_token %}
+    <input type="submit" value="Create" />
+</form>
+
+{% endblock %}

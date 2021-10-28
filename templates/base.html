@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +12,15 @@
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href=""></a>Home</li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            
             {% if user.is_authenticated %}
+            <li><a href="{% url 'pick_start_date' %}">Meal Plan</a></li>
             <li>
                 <a href="{% url 'account_logout' %}">Logout</a>
             </li>
             {% else %}
+            <li><a href="">Sample Meal Plan</a></li>
             <li>
                 <a href="{% url 'account_signup' %}">Register</a>
             </li>
