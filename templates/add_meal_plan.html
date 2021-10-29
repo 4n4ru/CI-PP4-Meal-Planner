@@ -1,125 +1,54 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container s-11 m-8">
+    <table class="centered responsive-table">
+        <thead>
+        <tr>
+            <td></td>
+            <th>{{ day_1 }}</th>
+            <th>{{ day_2 }}</th>
+            <th>{{ day_3 }}</th>
+            <th>{{ day_4 }}</th>
+            <th>{{ day_5 }}</th>
+            <th>{{ day_6 }}</th>
+            <th>{{ day_7 }}</th>
+        </tr>
+        </thead>
 
-<div class="container">
-    <div class="day-1">
-        <label for="">Day 1</label>
-        <div class="breakfast">
-            <label for="">breakfast</label>
-            <input type="text">
-        </div>
-        <div class="lunch">
-            <label for="">lunch</label>
-            <input type="text">
-        </div>
-        <div class="dinner">
-            <label for="">dinner</label>
-            <input type="text">
-        </div>
-    </div>
-    <br>
-    <div class="day-2">
-        <label for="">Day 2</label>
-        <div class="breakfast">
-            <label for="">breakfast</label>
-            <input type="text">
-        </div>
-        <div class="lunch">
-            <label for="">lunch</label>
-            <input type="text">
-        </div>
-        <div class="dinner">
-            <label for="">dinner</label>
-            <input type="text">
-        </div>
-    </div>
-    <br>
-    <div class="day-3">
-        <label for="">Day 3</label>
-        <div class="breakfast">
-            <label for="">breakfast</label>
-            <input type="text">
-        </div>
-        <div class="lunch">
-            <label for="">lunch</label>
-            <input type="text">
-        </div>
-        <div class="dinner">
-            <label for="">dinner</label>
-            <input type="text">
-        </div>
-    </div>
-    <br>
-    <div class="day-4">
-        <label for="">Day 4</label>
-        <div class="breakfast">
-            <label for="">breakfast</label>
-            <input type="text">
-        </div>
-        <div class="lunch">
-            <label for="">lunch</label>
-            <input type="text">
-        </div>
-        <div class="dinner">
-            <label for="">dinner</label>
-            <input type="text">
-        </div>
-    </div>
-    <br>
-    <div class="day-5">
-        <label for="">Day 5</label>
-        <div class="breakfast">
-            <label for="">breakfast</label>
-            <input type="text">
-        </div>
-        <div class="lunch">
-            <label for="">lunch</label>
-            <input type="text">
-        </div>
-        <div class="dinner">
-            <label for="">dinner</label>
-            <input type="text">
-        </div>
-    </div>
-    <br>
-    <div class="day-6">
-        <label for="">Day 6</label>
-        <div class="breakfast">
-            <label for="">breakfast</label>
-            <input type="text">
-        </div>
-        <div class="lunch">
-            <label for="">lunch</label>
-            <input type="text">
-        </div>
-        <div class="dinner">
-            <label for="">dinner</label>
-            <input type="text">
-        </div>
-    </div>
-    <br>
-    <div class="day-7">
-        <label for="">Day 7</label>
-        <div class="breakfast">
-            <label for="">breakfast</label>
-            <input type="text">
-        </div>
-        <div class="lunch">
-            <label for="">lunch</label>
-            <input type="text">
-        </div>
-        <div class="dinner">
-            <label for="">dinner</label>
-            <input type="text">
-        </div>
-    </div>
+        <tbody>
+        <tr>
+            <th>Breakfast</th>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <th>Lunch</th>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <th>Dinner</th>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
-<form method="POST" action="add">
-    {{ meal_form.as_p }}
-    {% csrf_token %}
-    <button type="submit">Add</button>
-</form>
-
 
 {% endblock %}
