@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class MealPlan(models.Model):
-    start_date = models.DateField()
+    start_date = models.DateTimeField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
@@ -14,5 +14,5 @@ class MealType(models.Model):
 class Meal(models.Model):
     meal_name = models.CharField(max_length=50)
     meal_plan = models.ForeignKey(MealPlan, on_delete=models.CASCADE)
-    day = models.DateField()
+    day = models.DateTimeField()
     meal_type = models.ForeignKey(MealType, on_delete=models.CASCADE)

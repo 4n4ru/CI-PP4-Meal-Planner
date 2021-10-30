@@ -1,54 +1,43 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container s-11 m-8">
-    <table class="centered responsive-table">
-        <thead>
-        <tr>
-            <td></td>
-            <th>{{ day_1 }}</th>
-            <th>{{ day_2 }}</th>
-            <th>{{ day_3 }}</th>
-            <th>{{ day_4 }}</th>
-            <th>{{ day_5 }}</th>
-            <th>{{ day_6 }}</th>
-            <th>{{ day_7 }}</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr>
-            <th>Breakfast</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-        </tr>
-        <tr>
-            <th>Lunch</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-        </tr>
-        <tr>
-            <th>Dinner</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+<div class="row">
+    <div class="col l1"></div>
+    <div class="col l1">{{ day1 | date:"l" }}</div>  
+    <div class="col l1">{{ day2 | date:"l" }}</div>  
+    <div class="col l1">{{ day3 | date:"l" }}</div>  
+    <div class="col l1">{{ day4 | date:"l" }}</div>  
+    <div class="col l1">{{ day5 | date:"l" }}</div>  
+    <div class="col l1">{{ day6 | date:"l" }}</div>  
+    <div class="col l1">{{ day7 | date:"l" }}</div>
+ </div>
+<form method="POST" action='meal'>
+        {% csrf_token %}
+        {{ formset.management_form}}
+        {% for form in formset %}
+        
+            {% if forloop.counter == 1 %}
+            <div class="row form-row">
+                <div class="col l1">Breakfast</div>
+                <div class="col l1">{{ form }}</div>
+            
+            {% elif forloop.counter == 8 %}
+            </div>
+            <div class="row form-row">
+                <div class="col l1">Breakfast</div>
+                <div class="col l1">{{ form }}</div>
+            
+            {% elif forloop.counter == 15 %}
+            </div>
+            <div class="row form-row">
+                <div class="col l1">Breakfast</div>
+                <div class="col l1">{{ form }}</div>
+            {% else %}
+                <div class="col l1">{{ form }}</div>
+            {% endif %}
+        {% endfor %}
+            </div>
+            <button type="submit">Submit</button>
+</form>
 
 {% endblock %}
