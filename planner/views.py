@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from .forms import MealForm, MealPlanForm
-from .models import MealPlan, Meal
+from .models import MealPlan, Meal, MealType
 from django.forms import formset_factory
-from datetime import timedelta, datetime
+from datetime import timedelta
 
 
 class Index(View):
@@ -72,8 +72,38 @@ class AddMeal(View):
 
     def post(self, request):
         meal_plan_id = request.session.get('meal_plan_id')
+        meal_plan = MealPlan.objects.get(pk=meal_plan_id)
+        start_date = meal_plan.start_date
+        days = [
+            start_date,
+            start_date + timedelta(days=1),
+            start_date + timedelta(days=2),
+            start_date + timedelta(days=3),
+            start_date + timedelta(days=4),
+            start_date + timedelta(days=5),
+            start_date + timedelta(days=6),
+        ]
         meals = formset_factory(MealForm, extra=21)
         formset = meals(request.POST)
         if formset.is_valid():
+            idx = 0
             for form in formset:
-                pass
+                meal_name = form.cleaned_data.get('meal_name')
+                meal_day = days[idx % 7]
+                if idx < 7:
+                    meal_type = MealType.objects.get(
+                        meal_type_name='Breakfast'
+                    )
+                elif idx < 14:
+                    meal_type = MealType.objects.get(meal_type_name='Lunch')
+                else:
+                    meal_type = MealType.objects.get(meal_type_name='Dinner')
+                meal = Meal(
+                    meal_name=meal_name,
+                    meal_plan=meal_plan,
+                    meal_type=meal_type,
+                    day=meal_day
+                )
+                meal.save()
+                idx += 1
+            return redirect('home')

@@ -11,7 +11,7 @@
     <div class="col l1">{{ day6 | date:"l" }}</div>  
     <div class="col l1">{{ day7 | date:"l" }}</div>
  </div>
-<form method="POST" action='meal'>
+<form method="POST" action=''>
         {% csrf_token %}
         {{ formset.management_form}}
         {% for form in formset %}
@@ -24,13 +24,13 @@
             {% elif forloop.counter == 8 %}
             </div>
             <div class="row form-row">
-                <div class="col l1">Breakfast</div>
+                <div class="col l1">Lunch</div>
                 <div class="col l1">{{ form }}</div>
             
             {% elif forloop.counter == 15 %}
             </div>
             <div class="row form-row">
-                <div class="col l1">Breakfast</div>
+                <div class="col l1">Dinner</div>
                 <div class="col l1">{{ form }}</div>
             {% else %}
                 <div class="col l1">{{ form }}</div>
