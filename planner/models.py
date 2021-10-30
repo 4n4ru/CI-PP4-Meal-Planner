@@ -6,9 +6,15 @@ class MealPlan(models.Model):
     start_date = models.DateTimeField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'Meal plan {self.pk}'
+
 
 class MealType(models.Model):
     meal_type_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f'{self.meal_type_name}'
 
 
 class Meal(models.Model):
@@ -16,3 +22,6 @@ class Meal(models.Model):
     meal_plan = models.ForeignKey(MealPlan, on_delete=models.CASCADE)
     day = models.DateTimeField()
     meal_type = models.ForeignKey(MealType, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.meal_name}'
