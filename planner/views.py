@@ -1,9 +1,9 @@
+from datetime import timedelta
 from django.shortcuts import render, redirect
 from django.views import View
+from django.forms import formset_factory
 from .forms import MealForm, MealPlanForm
 from .models import MealPlan, Meal, MealType
-from django.forms import formset_factory
-from datetime import timedelta
 
 
 class Index(View):
