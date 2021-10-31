@@ -19,7 +19,7 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             
             {% if user.is_authenticated %}
-            <li><a href="{% url 'pick_start_date' %}">Meal Plan</a></li>
+            <li><a href="{% url 'pick_start_date' %}">Add Meal Plan</a></li>
             <li><a href="{% url 'meal_plans' %}">My Meal Plans</a></li>
             <li>
                 <a href="{% url 'account_logout' %}">Logout</a>
