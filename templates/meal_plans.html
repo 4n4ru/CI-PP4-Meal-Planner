@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul>
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number}}">&laquo; PREV</a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number}}">NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}
+
+{% for mealplan in mealplan_list %}
+<h4>Meal plan: {{ mealplan.start_date | date }} - {{ mealplan.end_date | date}}</h4>
+
+    {% with meals=mealplan.meal.all %}
+        <div class="row">
+            <div class="col l1"></div>
+            <div class="col l1">{{ meals.0.day | date:"l" }}</div>  
+            <div class="col l1">{{ meals.1.day | date:"l" }}</div>  
+            <div class="col l1">{{ meals.2.day | date:"l" }}</div>  
+            <div class="col l1">{{ meals.3.day | date:"l" }}</div>  
+            <div class="col l1">{{ meals.4.day | date:"l" }}</div>  
+            <div class="col l1">{{ meals.5.day | date:"l" }}</div>  
+            <div class="col l1">{{ meals.6.day | date:"l" }}</div>
+        </div>
+        {% for meal in meals %}
+        {% if forloop.counter == 1 %}
+            <div class="row">
+                <div class="col l1">Breakfast</div>
+                <div class="col l1">{{ meal }}</div>
+            
+            {% elif forloop.counter == 8 %}
+            </div>
+            <div class="row">
+                <div class="col l1">Lunch</div>
+                <div class="col l1">{{ meal }}</div>
+            
+            {% elif forloop.counter == 15 %}
+            </div>
+            <div class="row">
+                <div class="col l1">Dinner</div>
+                <div class="col l1">{{ meal }}</div>
+            {% else %}
+                <div class="col l1">{{ meal }}</div>
+            {% endif %}
+        {% endfor %}
+    {% endwith %}
+{% endfor %}
+
+{% endblock %}

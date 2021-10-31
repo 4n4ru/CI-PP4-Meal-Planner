@@ -1,6 +1,6 @@
 from datetime import timedelta
 from django.shortcuts import render, redirect
-from django.views import View
+from django.views import View, generic
 from django.forms import formset_factory
 from .forms import MealForm, MealPlanForm
 from .models import MealPlan, Meal, MealType
@@ -26,7 +26,12 @@ class PickStartDate(View):
         if meal_plan_form.is_valid():
             user = request.user
             start_date = meal_plan_form.cleaned_data.get('start_date')
-            meal_plan = MealPlan(user=user, start_date=start_date)
+            end_date = start_date + timedelta(days=6)
+            meal_plan = MealPlan(
+                user=user,
+                start_date=start_date,
+                end_date=end_date
+            )
             meal_plan.save()
             request.session['meal_plan_id'] = meal_plan.pk
             return redirect('add_meal')
@@ -107,3 +112,14 @@ class AddMeal(View):
                 meal.save()
                 idx += 1
             return redirect('home')
+
+
+class ViewMealPlans(generic.list.ListView):
+    model = MealPlan
+    template_name = 'meal_plans.html'
+    paginate_by = 1
+
+    def get_queryset(self):
+        return MealPlan.objects.filter(user=self.request.user).order_by(
+            'start_date'
+        )
