@@ -3,13 +3,13 @@
 {% block content %}
 <div class="row">
     <div class="col l1"></div>
-    <div class="col l1">{{ day1 | date:"l" }}</div>  
-    <div class="col l1">{{ day2 | date:"l" }}</div>  
-    <div class="col l1">{{ day3 | date:"l" }}</div>  
-    <div class="col l1">{{ day4 | date:"l" }}</div>  
-    <div class="col l1">{{ day5 | date:"l" }}</div>  
-    <div class="col l1">{{ day6 | date:"l" }}</div>  
-    <div class="col l1">{{ day7 | date:"l" }}</div>
+    <div class="col l1">{{ meal_plan.day_1 | date:"l" }}</div>  
+    <div class="col l1">{{ meal_plan.day_2 | date:"l" }}</div>  
+    <div class="col l1">{{ meal_plan.day_3 | date:"l" }}</div>  
+    <div class="col l1">{{ meal_plan.day_4 | date:"l" }}</div>  
+    <div class="col l1">{{ meal_plan.day_5 | date:"l" }}</div>  
+    <div class="col l1">{{ meal_plan.day_6 | date:"l" }}</div>  
+    <div class="col l1">{{ meal_plan.day_7 | date:"l" }}</div>
  </div>
 <form method="POST" action=''>
         {% csrf_token %}

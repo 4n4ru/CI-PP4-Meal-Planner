@@ -9,7 +9,7 @@
             {% if page_obj.has_previous %}
             <li><a href="?page={{ page_obj.previous_page_number}}">&laquo; PREV</a></li>
             {% endif %}
-            <li>Meal plan: {{ mealplan.start_date | date }} - {{ mealplan.end_date | date}}</li>
+            <li>Meal plan: {{ mealplan.day_1 | date }} - {{ mealplan.day_7 | date}}</li>
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number}}">NEXT &raquo;</a></li>
             {% endif %}
@@ -17,17 +17,27 @@
     </nav>
 {% endif %}
 
+<ul>
+    {% if mealplan_list %}
+    <li><a href="{% url 'pick_start_date' %}">Add new meal plan</a></li>
+    <li><a href="edit_meal_plan/{{ mealplan.pk }}">Edit meal plan</a></li>
+    <li><a href="{% url 'home' %}">Delete meal plan</a></li>
+    {% else %}
+    <p>You currently have no meal plans to display!</p>
+    <li><a href="{% url 'pick_start_date' %}">Add new meal plan</a></li>
+    {% endif %}
+</ul>
 
     {% with meals=mealplan.meal.all %}
         <div class="row meals">
             <div class="col l1"></div>
-            <div class="col l1">{{ meals.0.day | date:"l" }}</div>  
-            <div class="col l1">{{ meals.1.day | date:"l" }}</div>  
-            <div class="col l1">{{ meals.2.day | date:"l" }}</div>  
-            <div class="col l1">{{ meals.3.day | date:"l" }}</div>  
-            <div class="col l1">{{ meals.4.day | date:"l" }}</div>  
-            <div class="col l1">{{ meals.5.day | date:"l" }}</div>  
-            <div class="col l1">{{ meals.6.day | date:"l" }}</div>
+            <div class="col l1">{{ mealplan.day_1 | date:"l" }}</div>  
+            <div class="col l1">{{ mealplan.day_2 | date:"l" }}</div>  
+            <div class="col l1">{{ mealplan.day_3 | date:"l" }}</div>  
+            <div class="col l1">{{ mealplan.day_4 | date:"l" }}</div>  
+            <div class="col l1">{{ mealplan.day_5 | date:"l" }}</div>  
+            <div class="col l1">{{ mealplan.day_6 | date:"l" }}</div>  
+            <div class="col l1">{{ mealplan.day_7 | date:"l" }}</div>
         </div>
         {% for meal in meals %}
         {% if forloop.counter == 1 %}
