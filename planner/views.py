@@ -1,4 +1,3 @@
-from datetime import timedelta
 from django.shortcuts import render, redirect
 from django.views import View, generic
 from django.forms import formset_factory
@@ -25,7 +24,7 @@ class PickStartDate(View):
         meal_plan_form = MealPlanForm(data=request.POST)
         if meal_plan_form.is_valid():
             user = request.user
-            day_1 = meal_plan_form.cleaned_data.get('start_date')
+            day_1 = meal_plan_form.cleaned_data.get('day_1')
             meal_plan = MealPlan(
                 user=user,
                 day_1=day_1,
@@ -95,7 +94,7 @@ class AddMeal(View):
                 )
                 meal.save()
                 idx += 1
-            return redirect('home')
+            return redirect('meal_plans')
 
 
 class ViewMealPlans(generic.list.ListView):
@@ -117,7 +116,7 @@ class EditMealPlan(View):
 
         # code on how to use inital data was inspired by this https://stackoverflow.com/a/15853036
         meals = Meal.objects.filter(meal_plan=meal_plan_id)
-        meals_formset = formset_factory(MealForm, extra=0)
+        meals_formset = formset_factory(MealForm, extra=21, max_num=21)
         initial_data = []
         for meal in meals:
             initial_data.append({'meal_name': meal.meal_name})
@@ -148,3 +147,12 @@ class EditMealPlan(View):
                 meal.meal_name = meal_name
                 meal.save()
             return redirect('meal_plans')
+
+
+class DeleteMealPlan(View):
+    
+    def post(self, request, **kwargs):
+        meal_plan_id = self.kwargs['meal_plan_id']
+        meal_plan = MealPlan.objects.get(pk=meal_plan_id)
+        meal_plan.delete()
+        return redirect('meal_plans')

@@ -8,4 +8,6 @@ urlpatterns = [
     path('view_meal_plans', views.ViewMealPlans.as_view(), name='meal_plans'),
     path('edit_meal_plan/<int:meal_plan_id>', views.EditMealPlan.as_view(),
          name='edit_plan'),
+    path('delete_meal_plan/<int:meal_plan_id>', views.DeleteMealPlan.as_view(),
+         name='delete_plan'),
 ]

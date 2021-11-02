@@ -12,7 +12,7 @@ class MealPlanForm(forms.ModelForm):
         model = MealPlan
         fields = ('day_1',)
         widgets = {
-            'made_on': DateInput(),
+            'day_1': DateInput(),
         }
 
 

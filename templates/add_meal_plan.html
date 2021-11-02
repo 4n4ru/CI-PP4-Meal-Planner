@@ -11,7 +11,7 @@
     <div class="col l1">{{ meal_plan.day_6 | date:"l" }}</div>  
     <div class="col l1">{{ meal_plan.day_7 | date:"l" }}</div>
  </div>
-<form method="POST" action=''>
+<form method="POST" action='add'>
         {% csrf_token %}
         {{ formset.management_form}}
         {% for form in formset %}

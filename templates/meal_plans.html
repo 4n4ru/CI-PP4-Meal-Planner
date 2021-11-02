@@ -20,14 +20,25 @@
 <ul>
     {% if mealplan_list %}
     <li><a href="{% url 'pick_start_date' %}">Add new meal plan</a></li>
+    <!-- Modal Trigger -->
+
     <li><a href="edit_meal_plan/{{ mealplan.pk }}">Edit meal plan</a></li>
-    <li><a href="{% url 'home' %}">Delete meal plan</a></li>
+    <li><a class="modal-trigger" href="#modal1">Delete meal plan</a></li>
     {% else %}
     <p>You currently have no meal plans to display!</p>
     <li><a href="{% url 'pick_start_date' %}">Add new meal plan</a></li>
     {% endif %}
 </ul>
 
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <form method="post" action="{% url 'delete_plan' meal_plan_id=mealplan.pk %}">{% csrf_token %}
+            <p>Are you sure you want to delete this meal plan?"?</p>
+            <input type="submit" value="Confirm">
+        </form>
+    </div>
+  </div>
     {% with meals=mealplan.meal.all %}
         <div class="row meals">
             <div class="col l1"></div>
@@ -63,4 +74,6 @@
     {% endwith %}
 {% endfor %}
 </div>
+
+
 {% endblock %}
