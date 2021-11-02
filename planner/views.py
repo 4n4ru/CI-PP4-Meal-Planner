@@ -25,12 +25,10 @@ class PickStartDate(View):
         meal_plan_form = MealPlanForm(data=request.POST)
         if meal_plan_form.is_valid():
             user = request.user
-            start_date = meal_plan_form.cleaned_data.get('start_date')
-            end_date = start_date + timedelta(days=6)
+            day_1 = meal_plan_form.cleaned_data.get('start_date')
             meal_plan = MealPlan(
                 user=user,
-                start_date=start_date,
-                end_date=end_date
+                day_1=day_1,
             )
             meal_plan.save()
             request.session['meal_plan_id'] = meal_plan.pk
@@ -51,26 +49,13 @@ class AddMeal(View):
     def get(self, request):
         meal_plan_id = request.session.get('meal_plan_id')
         meal_plan = MealPlan.objects.get(pk=meal_plan_id)
-        day1 = meal_plan.start_date
-        day2 = day1 + timedelta(days=1)
-        day3 = day1 + timedelta(days=2)
-        day4 = day1 + timedelta(days=3)
-        day5 = day1 + timedelta(days=4)
-        day6 = day1 + timedelta(days=5)
-        day7 = day1 + timedelta(days=6)
         meals = formset_factory(MealForm, extra=21)
         formset = meals()
         return render(
             request,
             'add_meal_plan.html',
             {
-                'day1': day1,
-                'day2': day2,
-                'day3': day3,
-                'day4': day4,
-                'day5': day5,
-                'day6': day6,
-                'day7': day7,
+                'meal_plan': meal_plan,
                 'formset': formset,
             }
         )
@@ -78,15 +63,14 @@ class AddMeal(View):
     def post(self, request):
         meal_plan_id = request.session.get('meal_plan_id')
         meal_plan = MealPlan.objects.get(pk=meal_plan_id)
-        start_date = meal_plan.start_date
         days = [
-            start_date,
-            start_date + timedelta(days=1),
-            start_date + timedelta(days=2),
-            start_date + timedelta(days=3),
-            start_date + timedelta(days=4),
-            start_date + timedelta(days=5),
-            start_date + timedelta(days=6),
+            meal_plan.day_1,
+            meal_plan.day_2,
+            meal_plan.day_3,
+            meal_plan.day_4,
+            meal_plan.day_5,
+            meal_plan.day_6,
+            meal_plan.day_7
         ]
         meals = formset_factory(MealForm, extra=21)
         formset = meals(request.POST)
@@ -121,5 +105,46 @@ class ViewMealPlans(generic.list.ListView):
 
     def get_queryset(self):
         return MealPlan.objects.filter(user=self.request.user).order_by(
-            'start_date'
+            'day_1'
         )
+
+
+class EditMealPlan(View):
+   
+    def get(self, request, **kwargs):
+        meal_plan_id = self.kwargs['meal_plan_id']
+        meal_plan = MealPlan.objects.get(pk=meal_plan_id)
+
+        # code on how to use inital data was inspired by this https://stackoverflow.com/a/15853036
+        meals = Meal.objects.filter(meal_plan=meal_plan_id)
+        meals_formset = formset_factory(MealForm, extra=0)
+        initial_data = []
+        for meal in meals:
+            initial_data.append({'meal_name': meal.meal_name})
+        formset = meals_formset(initial=initial_data)
+        return render(
+            request,
+            'edit_meal_plan.html',
+            {
+                'meal_plan_id': meal_plan_id,
+                'meal_plan': meal_plan,
+                'formset': formset,
+            }
+        )
+
+    def post(self, request, **kwargs):
+        meal_plan_id = self.kwargs['meal_plan_id']
+        meal_plan = MealPlan.objects.get(pk=meal_plan_id)
+        meals = Meal.objects.filter(meal_plan=meal_plan).order_by('pk')
+        start_id = meals[1].pk
+        meals_formset = formset_factory(MealForm, extra=21)
+        formset = meals_formset(request.POST)
+        if formset.is_valid():
+            idx = 0
+            for form in formset:
+                primary_key = start_id + idx
+                meal = Meal.objects.get(pk=primary_key)
+                meal_name = form.cleaned_data.get('meal_name')
+                meal.meal_name = meal_name
+                meal.save()
+            return redirect('meal_plans')
