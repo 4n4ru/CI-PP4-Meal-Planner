@@ -10,7 +10,7 @@ class MealPlanForm(forms.ModelForm):
 
     class Meta:
         model = MealPlan
-        fields = ('start_date',)
+        fields = ('day_1',)
         widgets = {
             'made_on': DateInput(),
         }
