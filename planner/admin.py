@@ -5,8 +5,8 @@ from .models import MealPlan, MealType, Meal
 # Register your models here.
 @admin.register(MealPlan)
 class MealPlanAdmin(admin.ModelAdmin):
-    list_filter = ['user', 'start_date']
-    list_display = ['user', 'start_date']
+    list_filter = ['user', 'day_1']
+    list_display = ['user', 'day_1', 'pk']
     search_fields = ['user']
 
 
@@ -18,6 +18,6 @@ class MealTypeAdmin(admin.ModelAdmin):
 
 @admin.register(Meal)
 class MealAdmin(admin.ModelAdmin):
-    list_display = ['meal_name', 'meal_plan', 'day', 'meal_type']
+    list_display = ['meal_name', 'meal_plan', 'day', 'meal_type', 'pk']
     list_filter = ['meal_name', 'meal_plan', 'day', 'meal_type']
     search_fields = ['meal_name', 'meal_plan', 'day', 'meal_type']
