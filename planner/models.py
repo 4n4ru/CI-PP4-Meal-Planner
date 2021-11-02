@@ -47,7 +47,7 @@ class MealType(models.Model):
 
 
 class Meal(models.Model):
-    meal_name = models.CharField(max_length=50)
+    meal_name = models.CharField(max_length=50, default='')
     meal_plan = models.ForeignKey(
         MealPlan,
         on_delete=models.CASCADE,

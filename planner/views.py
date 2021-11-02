@@ -109,7 +109,7 @@ class ViewMealPlans(generic.list.ListView):
 
 
 class EditMealPlan(View):
-   
+
     def get(self, request, **kwargs):
         meal_plan_id = self.kwargs['meal_plan_id']
         meal_plan = MealPlan.objects.get(pk=meal_plan_id)
@@ -135,17 +135,16 @@ class EditMealPlan(View):
         meal_plan_id = self.kwargs['meal_plan_id']
         meal_plan = MealPlan.objects.get(pk=meal_plan_id)
         meals = Meal.objects.filter(meal_plan=meal_plan).order_by('pk')
-        start_id = meals[1].pk
         meals_formset = formset_factory(MealForm, extra=21)
         formset = meals_formset(request.POST)
         if formset.is_valid():
-            idx = 0
+            i = 0
             for form in formset:
-                primary_key = start_id + idx
-                meal = Meal.objects.get(pk=primary_key)
+                meal = meals[i]
                 meal_name = form.cleaned_data.get('meal_name')
                 meal.meal_name = meal_name
                 meal.save()
+                i += 1
             return redirect('meal_plans')
 
 
