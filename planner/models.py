@@ -1,15 +1,39 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import timedelta
 
 
 class MealPlan(models.Model):
-    start_date = models.DateTimeField()
-    end_date = models.DateTimeField()
+    day_1 = models.DateTimeField()
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         related_name='meal_plan'
     )
+
+    @property
+    def day_2(self):
+        return self.day_1 + timedelta(days=1)
+
+    @property
+    def day_3(self):
+        return self.day_1 + timedelta(days=2)
+
+    @property
+    def day_4(self):
+        return self.day_1 + timedelta(days=3)
+
+    @property
+    def day_5(self):
+        return self.day_1 + timedelta(days=4)
+
+    @property
+    def day_6(self):
+        return self.day_1 + timedelta(days=5)
+
+    @property
+    def day_7(self):
+        return self.day_1 + timedelta(days=6)
 
     def __str__(self):
         return f'Meal plan {self.pk}'
