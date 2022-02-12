@@ -77,6 +77,8 @@ class AddMeal(View):
             idx = 0
             for form in formset:
                 meal_name = form.cleaned_data.get('meal_name')
+                if meal_name == None:
+                    meal_name = ''
                 meal_day = days[idx % 7]
                 if idx < 7:
                     meal_type = MealType.objects.get(
@@ -145,6 +147,8 @@ class EditMealPlan(View):
                 meal.meal_name = meal_name
                 meal.save()
                 i += 1
+            return redirect('meal_plans')
+        else:
             return redirect('meal_plans')
 
 
