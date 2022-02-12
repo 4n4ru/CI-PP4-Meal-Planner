@@ -1,9 +1,10 @@
 # Meal Planner
 (Developer: Ana Runje)
 
-![Mockup image]()
+Disclaimer: Due to time constraints, this app is still in a very rudimentary form and full of bugs. Sorry!
+I still decided to submit it in the spirit of better to submit something then nothing at all.
 
-[Live webpage]()
+[Live webpage](https://ci-pp4-meal-planner.herokuapp.com/)
 
 ## Table of Content
 
