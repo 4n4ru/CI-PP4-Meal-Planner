@@ -266,7 +266,7 @@ You can clone the repository by following these steps:
 
 
 ### Media
-
+- background image: <a href='https://www.freepik.com/psd/food'>Food psd created by freepik - www.freepik.com</a>
 
 ### Code
 

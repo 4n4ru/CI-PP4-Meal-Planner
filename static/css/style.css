@@ -6,3 +6,43 @@
     display: flex;
     justify-content: space-between;
 }
+
+body {
+    background: url(https://res.cloudinary.com/dj-l4n4ru/image/upload/v1644690718/static/background_podik7.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    color: whitesmoke;
+}
+
+.transparent-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.container {
+    height: 400px;
+    position: relative;
+    margin-top: 3rem;
+}
+  
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.action-buttons li:not(:first-child) {
+    margin-top: 0.5rem;
+}
+
+.brand-logo {
+    padding-left: 1rem !important;
+}
+  
