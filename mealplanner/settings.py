@@ -35,6 +35,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # If project is in development DEBUG = True, else DEBUG = False
 DEBUG = development
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = ['ci-pp4-meal-planner.herokuapp.com', 'localhost']
 
 
