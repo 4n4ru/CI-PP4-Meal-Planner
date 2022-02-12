@@ -16,6 +16,9 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
+# Check if project is currently in development
+development = os.environ.get('DEVELOPMENT', False) == 'True'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
@@ -28,7 +31,9 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+# If project is in development DEBUG = True, else DEBUG = False
+DEBUG = development
 
 ALLOWED_HOSTS = ['ci-pp4-meal-planner.herokuapp.com', 'localhost']
 
