@@ -2,11 +2,6 @@
     display: none;
 }
 
-.meals {
-    display: flex;
-    justify-content: space-between;
-}
-
 body {
     background: url(https://res.cloudinary.com/dj-l4n4ru/image/upload/v1644690718/static/background_podik7.jpg) no-repeat center center fixed;
     background-size: cover;
@@ -45,4 +40,32 @@ body {
 .brand-logo {
     padding-left: 1rem !important;
 }
+
+/* Hover text for meal plan action buttons, code from https://www.w3schools.com/css/css_tooltip.asp */
+.hover-link .hover-text {
+    visibility: hidden;
+    background-color: lightgray;
+    color: black;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
   
+    /* Position the hover-text */
+    position: absolute;
+    display: block;
+    left: 85%;
+    z-index: 1;
+}
+
+.hover-link:hover .hover-text {
+    visibility: visible;
+}
+
+.mealplan-action {
+    display: inline-block;
+}
+
+table {
+    background-color: whitesmoke;
+    color: black;
+}

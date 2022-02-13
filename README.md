@@ -269,6 +269,7 @@ You can clone the repository by following these steps:
 - background image: <a href='https://www.freepik.com/psd/food'>Food psd created by freepik - www.freepik.com</a>
 
 ### Code
+- hover text for new, edit and delete meal plan from https://www.w3schools.com/css/css_tooltip.asp
 
 
 ## Acknowledgments
