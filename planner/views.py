@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View, generic
 from django.forms import formset_factory
 from .forms import MealForm, MealPlanForm
@@ -10,7 +11,7 @@ class Index(View):
         return render(request, 'index.html')
 
 
-class PickStartDate(View):
+class PickStartDate(LoginRequiredMixin, View):
     def get(self, request):
         return render(
             request,
@@ -44,20 +45,22 @@ class PickStartDate(View):
 
 
 class AddMeal(View):
-
     def get(self, request):
-        meal_plan_id = request.session.get('meal_plan_id')
-        meal_plan = MealPlan.objects.get(pk=meal_plan_id)
-        meals = formset_factory(MealForm, extra=21)
-        formset = meals()
-        return render(
-            request,
-            'add_meal_plan.html',
-            {
-                'meal_plan': meal_plan,
-                'formset': formset,
-            }
-        )
+        try:
+            meal_plan_id = request.session.get('meal_plan_id')
+            meal_plan = MealPlan.objects.get(pk=meal_plan_id)
+            meals = formset_factory(MealForm, extra=21)
+            formset = meals()
+            return render(
+                request,
+                'add_meal_plan.html',
+                {
+                    'meal_plan': meal_plan,
+                    'formset': formset,
+                }
+            )
+        except:
+            return redirect('home')
 
     def post(self, request):
         meal_plan_id = request.session.get('meal_plan_id')
@@ -99,7 +102,7 @@ class AddMeal(View):
             return redirect('meal_plans')
 
 
-class ViewMealPlans(generic.list.ListView):
+class ViewMealPlans(LoginRequiredMixin, generic.list.ListView):
     model = MealPlan
     template_name = 'meal_plans.html'
     paginate_by = 1
@@ -110,7 +113,7 @@ class ViewMealPlans(generic.list.ListView):
         )
 
 
-class EditMealPlan(View):
+class EditMealPlan(LoginRequiredMixin, View):
 
     def get(self, request, **kwargs):
         meal_plan_id = self.kwargs['meal_plan_id']
@@ -152,7 +155,7 @@ class EditMealPlan(View):
             return redirect('meal_plans')
 
 
-class DeleteMealPlan(View):
+class DeleteMealPlan(LoginRequiredMixin, View):
     
     def post(self, request, **kwargs):
         meal_plan_id = self.kwargs['meal_plan_id']

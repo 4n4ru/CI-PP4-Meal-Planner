@@ -82,7 +82,8 @@ table{
     display: none;
 }
 
-.signup p input {
+.signup p input,
+.login p input {
     color: whitesmoke;
 }
 
