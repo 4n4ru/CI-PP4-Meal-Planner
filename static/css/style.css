@@ -89,4 +89,8 @@ table {
     table.responsive-table tbody {
         text-align: left;
     }
+
+    table.responsive-table tbody tr {
+        width: 33%;
+    }
 }
