@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class="transparent-overlay"></div>
 <form action="pick_date" method="post">
-    {{ meal_plan_form.as_p }}
-    {% csrf_token %}
-    <input type="submit" value="Create" />
+    <div class="container center-align">
+        <div class="pick-date-form">
+            {{ meal_plan_form.as_p }}
+            {% csrf_token %}
+        </div>
+    </div>
+    <div class="container right-align">
+        <input class="btn" type="submit" value="Create" />
+    </div>
 </form>
 
 {% endblock %}

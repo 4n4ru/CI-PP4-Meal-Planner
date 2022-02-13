@@ -20,8 +20,6 @@ body {
 }
 
 .container {
-    height: 400px;
-    position: relative;
     margin-top: 3rem;
 }
   
@@ -68,6 +66,16 @@ body {
 table {
     background-color: whitesmoke;
     color: black;
+}
+
+.pick-date-form {
+    background-color: whitesmoke;
+    color: black;
+    padding:1rem 3rem;
+}
+
+.pick-date-form p label {
+    display: none;
 }
 
 @media only screen and (max-width: 992px){
