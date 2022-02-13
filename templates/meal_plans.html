@@ -83,7 +83,7 @@
         {% endfor %}
         {% else %}
         <p>You currently have no meal plans to display!</p>
-        <li><a href="{% url 'pick_start_date' %}">Add new meal plan</a></li>
+        <a class="btn" href="{% url 'pick_start_date' %}">Add new meal plan</a>
         {% endif %}
     </div>
 
