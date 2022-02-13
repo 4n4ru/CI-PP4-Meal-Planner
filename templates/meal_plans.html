@@ -5,19 +5,19 @@
 <div class="container center-align">
     {% if mealplan_list %}
     {% for mealplan in mealplan_list %}
-    {% if is_paginated %}
+    
     <nav aria-label="Page navigation">
         <ul class="row">
-            {% if page_obj.has_previous %}
-            <li class="col s2"><a href="?page={{ page_obj.previous_page_number}}" aria-label="Previous meal plan"><i class="material-icons">arrow_back</i></a></li>
+            {% if is_paginated and page_obj.has_previous %}
+                <li class="col s2"><a href="?page={{ page_obj.previous_page_number}}" aria-label="Previous meal plan"><i class="material-icons">arrow_back</i></a></li>
             {% endif %}
             <li class="{% if not page_obj.has_previous %}offset-s2 {% endif %}col s8 center-align">Meal plan: {{ mealplan.day_1 | date }} - {{ mealplan.day_7 | date}}</li>
-            {% if page_obj.has_next %}
-            <li class="col s2 right-align"><a href="?page={{ page_obj.next_page_number}}" aria-label="Next meal plan"><i class="material-icons">arrow_forward</i></a></li>
+            {% if is_paginated and page_obj.has_next %}
+                <li class="col s2 right-align"><a href="?page={{ page_obj.next_page_number}}" aria-label="Next meal plan"><i class="material-icons">arrow_forward</i></a></li>
             {% endif %}
         </ul>
     </nav>
-    {% endif %}
+    
     <div>
         <ul class="right-align">
             <li class="mealplan-action"><a href="{% url 'pick_start_date' %}" class="hover-link white-text"><i class="material-icons">add_circle</i><span class="hover-text">Add new meal plan</span></a></li>
