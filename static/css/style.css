@@ -22,14 +22,6 @@ body {
 .container {
     margin-top: 3rem;
 }
-  
-.vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
 
 .action-buttons li:not(:first-child) {
     margin-top: 0.5rem;
@@ -37,6 +29,18 @@ body {
 
 .brand-logo {
     padding-left: 1rem !important;
+}
+
+.call-to-action-list {
+    display: inline-block;
+}
+
+.call-to-action-list li {
+    list-style-type: disc !important;
+    list-style-position: inside;
+    text-align: left;
+    font-weight: bold;
+    font-size: larger;
 }
 
 /* Hover text for meal plan action buttons, code from https://www.w3schools.com/css/css_tooltip.asp */
@@ -63,7 +67,7 @@ body {
     display: inline-block;
 }
 
-table {
+table{
     background-color: whitesmoke;
     color: black;
 }
@@ -75,6 +79,19 @@ table {
 }
 
 .pick-date-form p label {
+    display: none;
+}
+
+.signup p input {
+    color: whitesmoke;
+}
+
+.signup p label,
+.login p label {
+    float: left;
+}
+
+.login p:last-of-type {
     display: none;
 }
 

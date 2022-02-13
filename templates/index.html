@@ -6,15 +6,23 @@
         {% if user.is_authenticated %}
             <h1>Welcome back {{ user.get_username }}!</h1>
     </div>
-    <div class="col s12 m10 offset-m1 center-align vertical-center">
+    <div class="col s12 m10 offset-m1 center-align">
             <p>What would you like to do?</p>
             <ul class="action-buttons">
                 <li><a class="btn-small" href="{% url 'pick_start_date' %}">Add a new meal plan</a></li>
                 <li><a class="btn-small" href="{% url 'meal_plans' %}">View my meal plans</a></li>
             </ul>
         {% else %}
-            <p>Start planning your meals for the week today!</p>
-            <a class="btn" href="{% url 'account_signup' %}">Register</a>
+            <h1>Start planning your meals for the week today!</h1>
+            <div class="center-align">
+                <ul class="call-to-action-list" style="">
+                    <li>Plan 3 meals a day!</li>
+                    <li>Start any day of the week!</li>
+                    <li>Edit meal plan when needed!</li>
+                    <li>Plan as far ahead as you want!</li>
+                </ul>
+            </div>
+            <a class="btn" href="{% url 'account_signup' %}">Register now!</a>
         {% endif %}
     </div>
 </div>
