@@ -1,43 +1,56 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row">
-    <div class="col l1"></div>
-    <div class="col l1">{{ meal_plan.day_1 | date:"l" }}</div>  
-    <div class="col l1">{{ meal_plan.day_2 | date:"l" }}</div>  
-    <div class="col l1">{{ meal_plan.day_3 | date:"l" }}</div>  
-    <div class="col l1">{{ meal_plan.day_4 | date:"l" }}</div>  
-    <div class="col l1">{{ meal_plan.day_5 | date:"l" }}</div>  
-    <div class="col l1">{{ meal_plan.day_6 | date:"l" }}</div>  
-    <div class="col l1">{{ meal_plan.day_7 | date:"l" }}</div>
- </div>
-<form method="POST" action='add'>
-        {% csrf_token %}
-        {{ formset.management_form}}
-        {% for form in formset %}
-        
-            {% if forloop.counter == 1 %}
-            <div class="row form-row">
-                <div class="col l1">Breakfast</div>
-                <div class="col l1">{{ form }}</div>
-            
-            {% elif forloop.counter == 8 %}
-            </div>
-            <div class="row form-row">
-                <div class="col l1">Lunch</div>
-                <div class="col l1">{{ form }}</div>
-            
-            {% elif forloop.counter == 15 %}
-            </div>
-            <div class="row form-row">
-                <div class="col l1">Dinner</div>
-                <div class="col l1">{{ form }}</div>
-            {% else %}
-                <div class="col l1">{{ form }}</div>
-            {% endif %}
-        {% endfor %}
-            </div>
-            <button type="submit">Submit</button>
+<div class="transparent-overlay"></div>
+<form action="add" method="POST">
+    {% csrf_token %}
+    {{ formset.management_form}}
+    <div class="container center-align">
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>{{ meal_plan.day_1 | date:"l" }}</th>
+                    <th>{{ meal_plan.day_2 | date:"l" }}</th>
+                    <th>{{ meal_plan.day_3 | date:"l" }}</th>
+                    <th>{{ meal_plan.day_4 | date:"l" }}</th>
+                    <th>{{ meal_plan.day_5 | date:"l" }}</th>
+                    <th>{{ meal_plan.day_6 | date:"l" }}</th>
+                    <th>{{ meal_plan.day_7 | date:"l" }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for form in formset %}
+                    {% if forloop.counter == 1 %}
+                        <tr>
+                            <th scope="row">Breakfast</th>
+                    {% endif %}
+                            {% if forloop.counter >= 1 and forloop.counter < 8 %}
+                                <td class="form">{{ form.as_p }}</td>
+                            {% endif %}
+                    {% if forloop.counter == 8 %}
+                        </tr>
+                        <tr>
+                            <th scope="row">Lunch</th>
+                    {% endif %}
+                            {% if forloop.counter >= 8 and forloop.counter < 15 %}
+                                <td class="form">{{ form.as_p }}</td>
+                            {% endif %}
+                    {% if forloop.counter == 15 %}
+                        </tr>
+                        <tr>
+                            <th scope="row">Dinner</th>
+                    {% endif %}
+                        {% if forloop.counter >= 15%}
+                            <td class="form">{{ form.as_p }}</td>
+                        {% endif %}
+                {% endfor %}
+                        </tr>   
+            </tbody>
+        </table>
+    </div>
+    <div class="container right-align">
+        <button class="btn" type="submit">Submit</button>
+    </div>
 </form>
-
 {% endblock %}
