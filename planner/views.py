@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View, generic
 from django.forms import formset_factory
+from django.contrib import messages
 from .forms import MealForm, MealPlanForm
 from .models import MealPlan, Meal, MealType
 
@@ -99,6 +100,7 @@ class AddMeal(View):
                 )
                 meal.save()
                 idx += 1
+            messages.success(request, 'You have created a new mealplan.')
             return redirect('meal_plans')
 
 
@@ -119,22 +121,26 @@ class EditMealPlan(LoginRequiredMixin, View):
         meal_plan_id = self.kwargs['meal_plan_id']
         meal_plan = MealPlan.objects.get(pk=meal_plan_id)
 
-        # code on how to use inital data was inspired by this https://stackoverflow.com/a/15853036
-        meals = Meal.objects.filter(meal_plan=meal_plan_id)
-        meals_formset = formset_factory(MealForm, extra=21, max_num=21)
-        initial_data = []
-        for meal in meals:
-            initial_data.append({'meal_name': meal.meal_name})
-        formset = meals_formset(initial=initial_data)
-        return render(
-            request,
-            'edit_meal_plan.html',
-            {
-                'meal_plan_id': meal_plan_id,
-                'meal_plan': meal_plan,
-                'formset': formset,
-            }
-        )
+        if request.user == meal_plan.user:
+            # code on how to use inital data was inspired by this https://stackoverflow.com/a/15853036
+            meals = Meal.objects.filter(meal_plan=meal_plan_id)
+            meals_formset = formset_factory(MealForm, extra=21, max_num=21)
+            initial_data = []
+            for meal in meals:
+                initial_data.append({'meal_name': meal.meal_name})
+            formset = meals_formset(initial=initial_data)
+            return render(
+                request,
+                'edit_meal_plan.html',
+                {
+                    'meal_plan_id': meal_plan_id,
+                    'meal_plan': meal_plan,
+                    'formset': formset,
+                }
+            )
+        else:
+            messages.info(request, 'You can only edit your own mealplans')
+            return redirect('meal_plans')        
 
     def post(self, request, **kwargs):
         meal_plan_id = self.kwargs['meal_plan_id']
@@ -150,15 +156,25 @@ class EditMealPlan(LoginRequiredMixin, View):
                 meal.meal_name = meal_name
                 meal.save()
                 i += 1
+            messages.success(request, 'Your mealplan was successfully updated')
             return redirect('meal_plans')
         else:
+            messages.error(request, 'Ooops, something went wrong! Try again.')
             return redirect('meal_plans')
 
 
 class DeleteMealPlan(LoginRequiredMixin, View):
-    
+
     def post(self, request, **kwargs):
         meal_plan_id = self.kwargs['meal_plan_id']
         meal_plan = MealPlan.objects.get(pk=meal_plan_id)
         meal_plan.delete()
+        messages.success(request, 'Mealplan succesfully deleted!')
+        return redirect('meal_plans')
+
+    def get(self, request, **kwargs):
+        messages.warning(
+            request,
+            'Deleting meal plans by URL is not allowed!'
+        )
         return redirect('meal_plans')

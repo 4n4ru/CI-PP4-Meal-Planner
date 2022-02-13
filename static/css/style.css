@@ -100,6 +100,32 @@ table{
     color: black;
 }
 
+.messages {
+    text-align: center;
+}
+
+.message {
+    max-width: 600px;
+    padding: 0.5rem 0;
+    margin: 0 auto;
+}
+
+.message-success {
+    background-color: rgb(49, 82, 49);
+}
+
+.message-info {
+    background-color: rgb(38, 38, 97);
+}
+
+.message-error {
+    background-color: rgb(49, 16, 16);
+}
+
+.message-warning {
+    background-color: rgb(73, 58, 30);
+}
+
 @media only screen and (max-width: 992px){
     .form p {
         padding: 0;
