@@ -96,6 +96,10 @@ table{
     display: none;
 }
 
+.modal {
+    color: black;
+}
+
 @media only screen and (max-width: 992px){
     .form p {
         padding: 0;
