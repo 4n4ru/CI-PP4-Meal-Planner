@@ -96,6 +96,7 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 WSGI_APPLICATION = 'mealplanner.wsgi.application'
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
