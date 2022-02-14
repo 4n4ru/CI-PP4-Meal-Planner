@@ -2,18 +2,18 @@
 
 {% block content %}
 <div class="transparent-overlay"></div>
-<div class="container center-align">
+<div class="container container-darker center-align">
     {% if mealplan_list %}
     {% for mealplan in mealplan_list %}
     
-    <nav aria-label="Page navigation">
-        <ul class="row">
+    <nav aria-label="Page navigation ">
+        <ul class="row cyan darken-4">
             {% if is_paginated and page_obj.has_previous %}
-                <li class="col s2"><a href="?page={{ page_obj.previous_page_number}}" aria-label="Previous meal plan"><i class="material-icons">arrow_back</i></a></li>
+                <li class="col s1"><a href="?page={{ page_obj.previous_page_number}}" aria-label="Previous meal plan"><i class="material-icons">arrow_back</i></a></li>
             {% endif %}
-            <li class="{% if not page_obj.has_previous %}offset-s2 {% endif %}col s8 center-align">Meal plan: {{ mealplan.day_1 | date }} - {{ mealplan.day_7 | date}}</li>
+            <li class="{% if not page_obj.has_previous %}offset-s1 {% endif %}col s10 center-align">Meal plan: {{ mealplan.day_1 | date }} - {{ mealplan.day_7 | date}}</li>
             {% if is_paginated and page_obj.has_next %}
-                <li class="col s2 right-align"><a href="?page={{ page_obj.next_page_number}}" aria-label="Next meal plan"><i class="material-icons">arrow_forward</i></a></li>
+                <li class="col s1 right-align"><a href="?page={{ page_obj.next_page_number}}" aria-label="Next meal plan"><i class="material-icons">arrow_forward</i></a></li>
             {% endif %}
         </ul>
     </nav>
@@ -32,7 +32,7 @@
         <div class="modal-content">
             <form method="post" action="{% url 'delete_plan' meal_plan_id=mealplan.pk %}">{% csrf_token %}
                 <p>Are you sure you want to delete this meal plan?</p>
-                <input type="submit" value="Confirm" class="btn">
+                <input type="submit" value="Confirm" class="btn orange lighten-2 black-text">
             </form>
         </div>
     </div>
@@ -83,7 +83,7 @@
         {% endfor %}
         {% else %}
         <p>You currently have no meal plans to display!</p>
-        <a class="btn" href="{% url 'pick_start_date' %}">Add new meal plan</a>
+        <a class="btn orange lighten-2 black-text" href="{% url 'pick_start_date' %}">Add new meal plan</a>
         {% endif %}
     </div>
 

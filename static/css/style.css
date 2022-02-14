@@ -6,7 +6,7 @@ body {
     background: url(https://res.cloudinary.com/dj-l4n4ru/image/upload/v1644690718/static/background_podik7.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
-    color: whitesmoke;
+    color: white;
 }
 
 .transparent-overlay {
@@ -21,6 +21,11 @@ body {
 
 .container {
     margin-top: 3rem;
+}
+
+.container-darker {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
 }
 
 .action-buttons li:not(:first-child) {
@@ -64,7 +69,7 @@ table{
 
 .signup p input,
 .login p input {
-    color: whitesmoke;
+    color: white;
 }
 
 .signup p label,
@@ -113,7 +118,7 @@ table{
 
 .sample-header {
     height: 56px;
-    background-color: #ee6e73;
+    background-color: #006064;
     padding-top: 1rem;
     font-size: 1.5rem;
 }

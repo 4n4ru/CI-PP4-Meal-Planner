@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class="transparent-overlay"></div>
-<div class="container center-align">
+<div class="container container-darker center-align">
   <h1>{% trans "Sign In" %}</h1>
 
   {% get_providers as socialaccount_providers %}
@@ -21,7 +21,7 @@
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <button class="primaryAction btn" type="submit">{% trans "Sign In" %}</button>
+    <button class="primaryAction btn orange lighten-2 black-text" type="submit">{% trans "Sign In" %}</button>
   </form>
 </div>
 {% endblock %}
