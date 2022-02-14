@@ -234,10 +234,19 @@ JSHint Static Code Analysis Tool for JavaScript was used to validate the Javascr
 
 
 ### Accessibility
-The WAVE WebAIM web accessibility evaluation tool was used to ensure the website met high accessibility standards. All pages pass with 0 errors.
+The WAVE WebAIM web accessibility evaluation tool was used to ensure the website met high accessibility standards. I was only able to test pages whit the unauthenticated user. All these tests pass with 0 errors.
 
-<details><summary></summary>
-<img src="">
+<details><summary>Home page</summary>
+<img src="docs/validation/wave_validation_home.jpg">
+</details>
+<details><summary>Login page</summary>
+<img src="docs/validation/wave_validation_login.jpg">
+</details>
+<details><summary>Signup page</summary>
+<img src="docs/validation/wave_validation_signup.jpg">
+</details>
+<details><summary>Sample mealplan</summary>
+<img src="docs/validation/wave_validation_sample.jpg">
 </details>
 
 
