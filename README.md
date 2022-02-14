@@ -87,7 +87,7 @@ Meal Planner is a web app for weekly meal planning. A user is required to sign u
 The webpage was designed to be simple, clean and modern looking.
 
 ### Colour
-For the colours in the webpage I mostly used default Materialize colour because I thought they suitet the background image very well and created a nice and cohesive look
+For the colours in the webpage I used default Materialize colours that suited the the background image very well and created a nice and cohesive look, whilst maintaining accessibility and providing sufficient contrast between foreground and background elements.
 
 <details><summary>Colour Pallete</summary>
 <img src="docs/colour_pallete.png">
