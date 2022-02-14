@@ -20,10 +20,10 @@
     
     <div>
         <ul class="right-align">
-            <li class="mealplan-action"><a href="{% url 'pick_start_date' %}" class="hover-link white-text"><i class="material-icons">add_circle</i><span class="hover-text">Add new meal plan</span></a></li>
-            <li class="mealplan-action"><a href="edit_meal_plan/{{ mealplan.pk }}" class="hover-link white-text"><i class="material-icons">edit</i><span class="hover-text">Edit meal plan</span></a></li>
+            <li class="mealplan-action"><a class="tooltipped white-text" href="{% url 'pick_start_date' %}" data-position="left" data-tooltip="Add new meal plan"><i class="material-icons">add_circle</i></a></li>
+            <li class="mealplan-action"><a class="tooltipped white-text" href="edit_meal_plan/{{ mealplan.pk }}" data-position="left" data-tooltip="Edit meal plan"><i class="material-icons">edit</i></a></li>
             <!-- Modal Trigger -->
-            <li class="mealplan-action"><a class="modal-trigger hover-link white-text" href="#modal1"><i class="material-icons">delete</i><span class="hover-text">Delete meal plan</span></a></li>
+            <li class="mealplan-action"><a class="modal-trigger tooltipped white-text" href="#modal1" data-position="left" data-tooltip="Delete meal plan"><i class="material-icons">delete</i></a></li>
         </ul>
     </div>
 

@@ -43,26 +43,6 @@ body {
     font-size: larger;
 }
 
-/* Hover text for meal plan action buttons, code from https://www.w3schools.com/css/css_tooltip.asp */
-.hover-link .hover-text {
-    visibility: hidden;
-    background-color: lightgray;
-    color: black;
-    text-align: center;
-    border-radius: 4px;
-    padding: 5px;
-  
-    /* Position the hover-text */
-    position: absolute;
-    display: block;
-    left: 85%;
-    z-index: 1;
-}
-
-.hover-link:hover .hover-text {
-    visibility: visible;
-}
-
 .mealplan-action {
     display: inline-block;
 }
