@@ -231,21 +231,83 @@ class EditMealPlan(LoginRequiredMixin, View):
         """
         meal_plan_id = self.kwargs['meal_plan_id']
         meal_plan = MealPlan.objects.get(pk=meal_plan_id)
+        days = [
+            meal_plan.day_1,
+            meal_plan.day_2,
+            meal_plan.day_3,
+            meal_plan.day_4,
+            meal_plan.day_5,
+            meal_plan.day_6,
+            meal_plan.day_7
+        ]
         meals = Meal.objects.filter(meal_plan=meal_plan).order_by('pk')
         meals_formset = formset_factory(MealForm, extra=21)
         formset = meals_formset(request.POST)
         if formset.is_valid():
             i = 0
             for form in formset:
-                meal = meals[i]
-                meal_name = form.cleaned_data.get('meal_name')
-                meal.meal_name = meal_name
-                meal.save()
+                if meals:
+                    meal = meals[i]
+                    meal_name = form.cleaned_data.get('meal_name')
+                    meal.meal_name = meal_name
+                    meal.save()
+                else:
+                    meal_name = form.cleaned_data.get('meal_name')
+                    if meal_name is None:
+                        meal_name = ''
+                    meal_day = days[i % 7]
+                    if i < 7:
+                        meal_type = MealType.objects.get(
+                            meal_type_name='Breakfast'
+                        )
+                    elif i < 14:
+                        meal_type = MealType.objects.get(
+                            meal_type_name='Lunch'
+                        )
+                    else:
+                        meal_type = MealType.objects.get(
+                            meal_type_name='Dinner'
+                        )
+                    meal = Meal(
+                        meal_name=meal_name,
+                        meal_plan=meal_plan,
+                        meal_type=meal_type,
+                        day=meal_day
+                    )
+                    meal.save()
                 i += 1
             messages.success(request, 'Your mealplan was successfully updated')
             return redirect('meal_plans')
         else:
             messages.error(request, 'Ooops, something went wrong! Try again.')
+            return redirect('meal_plans')
+
+        meals = formset_factory(MealForm, extra=21)
+        formset = meals(request.POST)
+        if formset.is_valid():
+            idx = 0
+            for form in formset:
+                meal_name = form.cleaned_data.get('meal_name')
+                if meal_name is None:
+                    meal_name = ''
+                meal_day = days[idx % 7]
+                if idx < 7:
+                    meal_type = MealType.objects.get(
+                        meal_type_name='Breakfast'
+                    )
+                elif idx < 14:
+                    meal_type = MealType.objects.get(meal_type_name='Lunch')
+                else:
+                    meal_type = MealType.objects.get(meal_type_name='Dinner')
+                meal = Meal(
+                    meal_name=meal_name,
+                    meal_plan=meal_plan,
+                    meal_type=meal_type,
+                    day=meal_day
+                )
+                meal.save()
+                idx += 1
+            messages.success(request, 'You have created a new mealplan.')
             return redirect('meal_plans')
 
 
