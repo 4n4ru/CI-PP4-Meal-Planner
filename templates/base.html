@@ -29,7 +29,7 @@
                     <li><a href="{% url 'meal_plans' %}">My Meal Plans</a></li>
                     <li><a href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
-                    <li><a href="">Sample Meal Plan</a></li>
+                    <li><a href="{% url 'sample_meal_plan' %}">Sample Meal Plan</a></li>
                     <li><a href="{% url 'account_signup' %}">Register</a></li>
                     <li><a href="{% url 'account_login' %}">Login</a></li>
                 {% endif %}
@@ -43,7 +43,7 @@
                 <li><a href="{% url 'meal_plans' %}">My Meal Plans</a></li>
                 <li><a href="{% url 'account_logout' %}">Logout</a></li>
             {% else %}
-                <li><a href="">Sample Meal Plan</a></li>
+                <li><a href="{% url 'sample_meal_plan' %}">Sample Meal Plan</a></li>
                 <li><a href="{% url 'account_signup' %}">Register</a></li>
                 <li><a href="{% url 'account_login' %}">Login</a></li>
             {% endif %}

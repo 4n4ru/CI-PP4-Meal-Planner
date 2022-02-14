@@ -25,6 +25,20 @@ class Index(View):
         return render(request, 'index.html')
 
 
+class Sample(View):
+    """
+    Displays the sample meal plan page
+    """
+    def get(self, request):
+        """Renders the sample meal plan page
+        Args:
+            request (object): HTTP request object
+        Returns:
+            method: renders sample meal plan page
+        """
+        return render(request, 'sample_meal_plan.html')
+
+
 class PickStartDate(LoginRequiredMixin, View):
     """
     A view for picking the start date for the mealplan
