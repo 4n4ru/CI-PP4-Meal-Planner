@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // hide messages after 5 seconds
   setTimeout(() => {
-    var messages = document.getElementsByClassName('messages')[0]
+    var messages = document.getElementsByClassName('messages')[0];
     if (messages) {
       messages.style.display = 'none';
     }

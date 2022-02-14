@@ -219,17 +219,17 @@ The W3C Markup Validation Service was used to validate the HTML of the website. 
 
 
 ### CSS Validation
-The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. When validating the page as a whole, the validator shows some errors linked to Bootstrap v5.0. When validating just my custom CSS it passes with no errors.
+The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. When validating the page as a whole, the validator shows some errors linked to Materialize. When validating just my custom CSS it passes with no errors.
 
-<details><summary>Full page</summary>
-<img src="">
+<details><summary>Custom CSS</summary>
+<img src="docs/validation/css_validation.jpg">
 </details>
 
 
 ### JavaScript Validation
 JSHint Static Code Analysis Tool for JavaScript was used to validate the Javascript files. No significant issues were found.
-<details><summary></summary>
-<img src="">
+<details><summary>script.js</summary>
+<img src="docs/validation/jshint_validation.jpg">
 </details>
 
 
