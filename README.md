@@ -301,13 +301,11 @@ The app was deployed on Heroku by following these steps:
 - Press Enter to create your local clone.
 
 ## Credits
-
-
 ### Media
 - background image: <a href='https://www.freepik.com/psd/food'>Food psd created by freepik - www.freepik.com</a>
 
 ### Code
-
+-  code for prepopulating the formsets when editing meal plans was inspired by this https://stackoverflow.com/a/15853036
 
 ## Acknowledgments
 I would like to take the opportunity to thank:
