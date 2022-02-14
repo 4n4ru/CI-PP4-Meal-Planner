@@ -16,30 +16,36 @@
 </head>
 <body>
     <!-- Navigation -->
-    <div class="navbar-fixed">
+    <div>
         <nav>
             <div class="nav-wrapper">
-            <a href="{% url 'home' %}" class="brand-logo">Meal Planner</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <a href="{% url 'home' %}" class="brand-logo">Meal Planner</a>
+              <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <ul class="right hide-on-med-and-down">
                 <li><a href="{% url 'home' %}">Home</a></li>
-                
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'meal_plans' %}">My Meal Plans</a></li>
-                    <li>
-                        <a href="{% url 'account_logout' %}">Logout</a>
-                    </li>
+                    <li><a href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
                     <li><a href="">Sample Meal Plan</a></li>
-                    <li>
-                        <a href="{% url 'account_signup' %}">Register</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'account_login' %}">Login</a>
-                    </li>
+                    <li><a href="{% url 'account_signup' %}">Register</a></li>
+                    <li><a href="{% url 'account_login' %}">Login</a></li>
                 {% endif %}
-            </ul>
+              </ul>
             </div>
-        </nav>
+          </nav>
+        
+          <ul class="sidenav" id="mobile">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'meal_plans' %}">My Meal Plans</a></li>
+                <li><a href="{% url 'account_logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="">Sample Meal Plan</a></li>
+                <li><a href="{% url 'account_signup' %}">Register</a></li>
+                <li><a href="{% url 'account_login' %}">Login</a></li>
+            {% endif %}
+          </ul>
     </div>
 
     {% if messages %}

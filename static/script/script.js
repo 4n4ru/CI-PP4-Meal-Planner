@@ -3,9 +3,15 @@ document.addEventListener('DOMContentLoaded', function() {
   var modal = document.querySelectorAll('.modal');
   M.Modal.init(modal);
 
+  // sidenav initialization
+  var sidenav = document.querySelectorAll('.sidenav');
+  M.Sidenav.init(sidenav);
+
   // hide messages after 5 seconds
   setTimeout(() => {
-    var messages = document.getElementsByClassName('messages');
-    messages[0].style.display = 'none';
+    var messages = document.getElementsByClassName('messages')[0]
+    if (messages) {
+      messages.style.display = 'none';
+    }
   }, 5000);
 });
