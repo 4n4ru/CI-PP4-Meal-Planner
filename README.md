@@ -256,30 +256,49 @@ The website was tested on the following browsers:
 
 
 ## Deployment
-The website was deployed using Heroku by "following these steps:
-1. Use the "pip freeze -> requiremnts.txt" command in the terminal to save any libraries that need to be instaled in the file
-2. Login or create a Heroku account
-3. Click the "new" button in the upper right corner and select "create new app"
-4. Choose an app name and your region and click "Create app"
-5. Go to the "settings" tab, add the python build pack and then the node.js build pack
-6. Go to the "deploy" tab and pick GitHub as a deployment method
-7. Search for a repository to connect to
-8. Click enable automatic deploys and then deploy branch
-9. Wait for the app to build and then click on the "View" link
+The app was deployed on Heroku by following these steps:
+### Heroku
+1. Create your Heroku app
+- Navigate to the Heroku website
+- In the Heroku browser window, create an account by entering your email address and a password
+- Activate the account through the authentication email sent to your email account
+- Click the new button and select create a new app from the dropdown menu
+- Enter a name for the application which must be unique
+- Select the region closest to you
+- Click create app
+2. Create the Database
+- In the Heroku dashboard click on the Resources tab
+- Scroll down to Add-Ons, search for and select 'Heroku Postgres'
+3. Set up Environment Variables
+- In the Heroku Settings tab, scroll down to 'Reveal Config Vars' and transfer you environment variables here
+4. Set up Cloudinary for static and media files storage
+- Create a Cloudinary account and from the 'Dashboard' in Cloudinary copy your url into the 'Config Vars' in Heroku
+    - for key type: CLOUDINARY_URL
+    - for value paste in your cloudinar url
+5. Add Heroku Hostname to ALLOWED_HOSTS: ALLOWED_HOSTS = ['favoureats.herokuapp.com', 'localhost'] in your settings.py
+6. Create Procfile in top level directory:
+    - In Procfile add: web: gunicorn app_name .wsgi
+7. Heroku Deployment:
+- Click Deploy tab in Heroku
+- In the 'Deployment method' section select 'Github' and click the 'connect to Github' button to confirm.
+- In the 'search' box enter the Github repository name for the project
+- Click search and then click connect to link the heroku app with the Github repository. The box will confirm that heroku is connected to the repository.
+8. Final Deployment
+- When development is complete change the debug setting to: DEBUG = False in settings.py
+- To manually deploy click the button 'Deploy Branch'. The default 'main' option in the dropdown menu should be selected in both cases. When the app is deployed a message 'Your app was successfully deployed' will be shown. Click 'view' to see the deployed app in the browser. The live deployment of the project can be seen here
 
-You can fork the repository by following these steps:
-1. Go to the GitHub repository
-2. Click on the Fork button in the upper right-hand corner
+### Forking the Repository
+- To fork the project navigate to the repository on GitHub
+- Click on the Fork button in the upper right-hand corner
 
-You can clone the repository by following these steps:
-1. Go to the GitHub repository
-2. Locate the Code button above the list of files and click it
-3. Select if you prefer to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the URL to your clipboard
-4. Open Git Bash
-5. Change the current working directory to the one where you want the cloned directory
-6. Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY)
-7. Press Enter to create your local clone.
-
+### Cloning the Repository
+- To clone the project navigate to the repository on GitHub
+- Above the list of files click the dropdown code menu.
+- Select if you prefer to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the URL to your clipboard
+- Open Git Bash
+- Change the current working directory to the one where you want the cloned directory
+- Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY)
+- Press Enter to create your local clone.
 
 ## Credits
 
