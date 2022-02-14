@@ -159,6 +159,6 @@ table{
     }
 
     table.responsive-table tbody tr {
-        width: 33%;
+        min-width: 33%;
     }
 }
