@@ -67,6 +67,10 @@ table{
     display: none;
 }
 
+#form-label {
+    float: left;
+}
+
 .signup p input,
 .login p input {
     color: white;

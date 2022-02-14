@@ -7,7 +7,7 @@ class DateInput(forms.DateInput):
 
 
 class MealPlanForm(forms.ModelForm):
-
+    
     class Meta:
         model = MealPlan
         fields = ('day_1',)
