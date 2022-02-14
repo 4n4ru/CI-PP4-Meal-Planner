@@ -186,8 +186,35 @@ The site consists of 10 pages and ... features
 
 ### HTML Validation
 The W3C Markup Validation Service was used to validate the HTML of the website. All pages pass with no errors no warnings to show.
-<details><summary></summary>
-<img src="">
+<details><summary>Index page when user logged in</summary>
+<img src="docs/validation/html_validation_index_logged_in.jpg">
+</details>
+<details><summary>Index page when user logged lout</summary>
+<img src="docs/validation/html_validation_index_logged_out.jpg">
+</details>
+<details><summary>Pick start date page</summary>
+<img src="docs/validation/html_validation_pick_start_date.jpg">
+</details>
+<details><summary>Add meals</summary>
+<img src="docs/validation/html_validation_add_meals.jpg">
+</details>
+<details><summary>Edit meal plan</summary>
+<img src="docs/validation/html_validation_edit_meal_plan.jpg">
+</details>
+<details><summary>My meal plans</summary>
+<img src="docs/validation/html_validation_my_meal_plans.jpg">
+</details>
+<details><summary>Login page</summary>
+<img src="docs/validation/html_validation_login.jpg">
+</details>
+<details><summary>Logout page</summary>
+<img src="docs/validation/html_validation_logout.jpg">
+</details>
+<details><summary>Signup page</summary>
+<img src="docs/validation/html_validation_signup.jpg">
+</details>
+<details><summary>404 page</summary>
+<img src="docs/validation/html_validation_404.jpg">
 </details>
 
 
@@ -227,6 +254,7 @@ The website was tested on the following devices:
 - Lenovo Yoga 2 Pro (both in pc and tablet mode)
 - Honor 20 pro
 - Xiaomi Redmi Note 7
+- Samsung Galaxy A52s 5G
 
 In addition, the website was tested using the Google Chrome Developer Tools Device Toggling option for all available device options.
 
