@@ -126,6 +126,11 @@ table{
     background-color: rgb(73, 58, 30);
 }
 
+.page-not-found {
+    font-size: 5rem;
+    margin: 1rem;
+}
+
 @media only screen and (max-width: 992px){
     .form p {
         padding: 0;
